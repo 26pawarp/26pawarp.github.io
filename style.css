@@ -31,12 +31,12 @@ body {
 
 .nav div.logo a {
     text-decoration: none;
-    color: #000000;
+    color: #ffffff;
     font-size: 2.5rem;
 }
 
 .nav div.logo a:hover {
-    color: #00E676;
+    color: #FFCB05;
 }
 
 .nav div.main_list {
@@ -62,13 +62,13 @@ body {
 
 .nav div.main_list ul li a {
     text-decoration: none;
-    color: #000000;
+    color: #ffffff;
     line-height: 65px;
     font-size: 2.4rem;
 }
 
 .nav div.main_list ul li a:hover {
-    color: #00E676;
+    color: #FFCB05;
 }
 
 
@@ -77,7 +77,7 @@ body {
 .home {
     width: 100%;
     height: 10vh;
-    background-image: url(https://www.manchestercc.edu/wp-content/uploads/cs-internet-web.jpg);
+    background-image: url(https://www.icolorpalette.com/download/solidcolorimage/00274c_solid_color_background_icolorpalette.png);
     background-position: center top;
 	background-size:cover;
 }
