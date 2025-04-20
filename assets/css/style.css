@@ -67,7 +67,7 @@
   --vegas-gold: hsl(45, 54%, 58%);
   --light-gray: hsl(0, 0%, 84%);
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
-  --bittersweet-shimmer: hsl(0, 43%, 51%);
+  --bittersweet-shimmer: hsl(197, 78%, 53%);
 
   /**
    * typography
@@ -895,7 +895,6 @@ main {
 /*-----------------------------------*\
   #PORTFOLIO
 \*-----------------------------------*/
-
 .filter-list { display: none; }
 
 .filter-select-box {
@@ -960,7 +959,14 @@ main {
   margin-bottom: 10px;
 }
 
-.project-item { display: none; }
+.project-item {
+  display: none; /* Initially hidden, shown based on filter */
+  position: relative; /* For absolute positioning of details */
+  overflow: hidden; /* Clip the details when hidden */
+  border: 1px solid var(--jet); /* Example border */
+  border-radius: 8px;
+  box-shadow: var(--shadow-2);
+}
 
 .project-item.active {
   display: block;
@@ -972,7 +978,14 @@ main {
   100% { transform: scale(1); }
 }
 
-.project-item > a { width: 100%; }
+.project-card {
+  padding: 15px;
+}
+
+.project-item > a {
+  width: 100%;
+  display: block; /* Ensures the whole area is clickable */
+}
 
 .project-img {
   position: relative;
@@ -1036,7 +1049,7 @@ main {
 
 .project-title {
   color: var(--white-2);
-  font-size: var(--fs-5);
+  font-size: var(--fs-4);
   font-weight: var(--fw-400);
   text-transform: capitalize;
   line-height: 1.3;
@@ -1048,9 +1061,76 @@ main {
   font-weight: var(--fw-300);
 }
 
+.project-more-info-btn {
+  background: none;
+  border: none;
+  color: var(--orange-yellow-crayola);
+  cursor: pointer;
+  padding: 8px 15px;
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: var(--fs-7);
+}
 
+.project-details {
+  padding: 15px;
+  background-color: var(--eerie-black-1);
+  border-top: 1px solid var(--jet);
+  display: none; /* Initially hidden */
+}
 
+.project-details ul {
+  list-style: none;
+  padding: 0;
+}
 
+.project-details li {
+  margin-bottom: 5px;
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+}
+
+.project-details li a {
+  color: var(--orange-yellow-crayola);
+  text-decoration: none;
+}
+
+.project-item.expanded .project-details {
+  display: block; /* Show when the 'expanded' class is added */
+}
+
+.project-item.expanded .project-card {
+  margin-bottom: 0; /* Adjust spacing when expanded */
+}
+
+.project-links {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.project-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--orange-yellow-crayola);
+  text-decoration: none;
+  font-size: var(--fs-6);
+  padding: 8px 12px;
+  border: 1px solid var(--orange-yellow-crayola);
+  border-radius: 8px;
+  transition: var(--transition-1);
+}
+
+.project-link-btn:hover {
+  background-color: var(--orange-yellow-crayola);
+  color: var(--smoky-black);
+}
+
+.project-link-btn ion-icon {
+  font-size: 18px;
+}
 
 /*-----------------------------------*\
   #BLOG

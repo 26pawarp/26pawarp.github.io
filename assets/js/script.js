@@ -157,3 +157,17 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+const projectItems = document.querySelectorAll('.project-item');
+
+projectItems.forEach(item => {
+  const moreInfoBtn = item.querySelector('.project-more-info-btn');
+  const projectDetails = item.querySelector('.project-details');
+
+  if (moreInfoBtn && projectDetails) {
+    moreInfoBtn.addEventListener('click', (event) => {
+      event.preventDefault(); // Prevent the default behavior of the button if it's inside a link
+      item.classList.toggle('expanded');
+    });
+  }
+});
