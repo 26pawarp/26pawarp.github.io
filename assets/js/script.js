@@ -143,18 +143,23 @@ const pages = document.querySelectorAll("[data-page]");
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
+    const clickedNavLink = this; // Capture the clicked navigation link
 
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
+    for (let j = 0; j < pages.length; j++) { // Use a different index 'j' for pages
+      if (clickedNavLink.innerHTML.toLowerCase() === pages[j].dataset.page) {
+        pages[j].classList.add("active");
+        clickedNavLink.classList.add("active"); // Use the captured element
         window.scrollTo(0, 0);
       } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
+        pages[j].classList.remove("active");
+        // We should only remove the 'active' class from *other* navigation links
+        for (let k = 0; k < navigationLinks.length; k++) {
+          if (navigationLinks[k] !== clickedNavLink) {
+            navigationLinks[k].classList.remove("active");
+          }
+        }
       }
     }
-
   });
 }
 
